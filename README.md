@@ -9,6 +9,19 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) for the public site.
 
+## Bulk content import
+
+The complete starter content lives in `content/portfolio.json`. To create or update all Sanity documents in one command:
+
+1. In Sanity Manage, open **API → Tokens** and create a token with **Editor** permissions. Copy it once; Sanity will not show it again.
+2. In the Codespace terminal, run:
+
+```bash
+SANITY_API_TOKEN=your-token npm run content:import
+```
+
+The importer creates or updates the site settings, capabilities, selected work, and experience documents using stable IDs, so it is safe to run again after editing `content/portfolio.json`. Never commit the token or put it in a `NEXT_PUBLIC_` variable.
+
 ## Admin console setup
 
 The admin console is available at [/admin](http://localhost:3000/admin) and is powered by Sanity. It is intentionally not usable until a Sanity project is connected.

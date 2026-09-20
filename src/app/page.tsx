@@ -2,6 +2,8 @@ import { ArrowUpRight, ChevronDown, CircleArrowOutUpRight, Menu, ShieldCheck } f
 import { getPortfolioContent } from "@/sanity/lib/content";
 import Link from "next/link";
 
+export const revalidate = 60;
+
 export default async function Home() {
   const content = await getPortfolioContent();
 
@@ -20,7 +22,7 @@ export default async function Home() {
 
       <section className="hero shell" id="top">
         <div className="hero-copy">
-          <p className="eyebrow"><span className="status-dot" /> Product-minded data leader</p>
+          <p className="eyebrow"><span className="status-dot" /> {content.settings.headline}</p>
           <h1>{content.settings.heroStatement}</h1>
           <p className="hero-lede">{content.settings.heroDescription}</p>
           <div className="hero-actions">

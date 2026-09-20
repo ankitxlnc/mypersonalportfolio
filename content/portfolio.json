@@ -1,0 +1,28 @@
+{
+  "settings": {
+    "_id": "siteSettings-main",
+    "_type": "siteSettings",
+    "name": "Ankit Aggarwal",
+    "headline": "Product Director",
+    "heroStatement": "Building the context for trusted data.",
+    "heroDescription": "I turn complex data and regulatory challenges into products people can understand, trust, and use.",
+    "email": "aggarwal.ankit5@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/ankitaggarwal05",
+    "substack": "https://substack.com/@ankitxlnc5"
+  },
+  "capabilities": [
+    { "_id": "capability-context", "_type": "capability", "number": "01", "title": "Context layer", "description": "Graph-powered context, ontologies, and semantic layer that make data intelligible.", "order": 1 },
+    { "_id": "capability-products", "_type": "capability", "number": "02", "title": "Data products", "description": "Self-serve platforms and reusable patterns that move data from strategy to adoption.", "order": 2 },
+    { "_id": "capability-trust", "_type": "capability", "number": "03", "title": "Regulatory trust", "description": "Lineage, quality, contracts, and controls built for decision-critical environments.", "order": 3 }
+  ],
+  "projects": [
+    { "_id": "project-fusion", "_type": "project", "index": "01", "type": "Enterprise platform", "title": "Fusion: making enterprise data usable", "description": "Owned the vision and roadmap for a platform launched from zero to external clients, now growing monthly active users by roughly 100% year over year.", "tags": ["Product strategy", "Data platforms", "Adoption"], "accent": "amber", "order": 1 },
+    { "_id": "project-bcbs239", "_type": "project", "index": "02", "type": "Regulatory data", "title": "Controls by design for BCBS 239", "description": "Led lineage, quality monitoring, remediation, data contracts, and glossary capabilities across lines of business and control functions, cutting audit findings by 50%.", "tags": ["Lineage", "Data quality", "Risk"], "accent": "mint", "order": 2 },
+    { "_id": "project-mezocliq", "_type": "project", "index": "03", "type": "Startup platform", "title": "A no-code data lifecycle", "description": "Built Mezocliq's low-code data platform and its metadata, profiling, quality, and lineage layer so citizen developers could move from ingest to insight.", "tags": ["0 to 1", "No-code", "Data products"], "accent": "sky", "order": 3 }
+  ],
+  "experience": [
+    { "_id": "experience-jpmorgan", "_type": "experience", "years": "2021 - now", "company": "JPMorganChase", "role": "Executive Director, Technical Product Management", "note": "Enterprise data platforms, governance, and data quality", "order": 1 },
+    { "_id": "experience-mezocliq", "_type": "experience", "years": "2014 - 2021", "company": "meZocliq", "role": "Director, Technical Product Management", "note": "Self-serve and no-code data management platform", "order": 2 },
+    { "_id": "experience-iqor", "_type": "experience", "years": "2006 - 2013", "company": "iQor", "role": "Product Manager, Data & Reporting Products", "note": "Data integrations and internal reporting platform", "order": 3 }
+  ]
+}

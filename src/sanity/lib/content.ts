@@ -2,6 +2,7 @@ import { createClient } from "next-sanity";
 
 export type PortfolioContent = {
   settings: {
+    headline: string;
     heroStatement: string;
     heroDescription: string;
     email: string;
@@ -15,6 +16,7 @@ export type PortfolioContent = {
 
 const fallback: PortfolioContent = {
   settings: {
+    headline: "Product-minded data leader with 15+ years of experience",
     heroStatement: "Building the context for trusted data.",
     heroDescription: "I turn complex data and regulatory challenges into products people can understand, trust, and use.",
     email: "aggarwal.ankit5@gmail.com",
@@ -39,7 +41,7 @@ const fallback: PortfolioContent = {
 };
 
 const client = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-  ? createClient({ projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID, dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production", apiVersion: "2026-09-19", useCdn: true })
+  ? createClient({ projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID, dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production", apiVersion: "2026-09-19", useCdn: false })
   : null;
 
 export async function getPortfolioContent(): Promise<PortfolioContent> {
@@ -47,7 +49,7 @@ export async function getPortfolioContent(): Promise<PortfolioContent> {
 
   try {
     const [settings, capabilities, projects, experience] = await Promise.all([
-      client.fetch(`*[_type == "siteSettings"][0]{heroStatement, heroDescription, email, linkedin, substack}`),
+      client.fetch(`*[_type == "siteSettings"][0]{headline, heroStatement, heroDescription, email, linkedin, substack}`),
       client.fetch(`*[_type == "capability"] | order(order asc){number, title, "text": description}`),
       client.fetch(`*[_type == "project"] | order(order asc){index, type, title, description, tags, accent}`),
       client.fetch(`*[_type == "experience"] | order(order asc){years, company, role, note}`),
