@@ -1,9 +1,16 @@
 import { ArrowUpRight, CircleArrowOutUpRight, Menu, ShieldCheck } from "lucide-react";
-import { PortableText } from "@portabletext/react";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { getPortfolioContent } from "@/sanity/lib/content";
 import Link from "next/link";
 
 export const revalidate = 60;
+
+const aboutTextComponents: PortableTextComponents = {
+  block: {
+    body: ({ children }) => <p className="about-font-body">{children}</p>,
+    display: ({ children }) => <p className="about-font-display">{children}</p>,
+  },
+};
 
 export default async function Home() {
   const content = await getPortfolioContent();
@@ -55,7 +62,7 @@ export default async function Home() {
 
       <section className="intro shell" id="about">
         <div className="section-kicker">{content.settings.pointOfViewKicker}</div>
-        <div className="intro-content"><PortableText value={content.settings.about} /></div>
+        <div className="intro-content"><PortableText value={content.settings.about} components={aboutTextComponents} /></div>
       </section>
 
       <section className="capabilities shell" id="capabilities">

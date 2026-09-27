@@ -24,6 +24,8 @@ export const siteSettings = defineType({
         type: "block",
         styles: [
           { title: "Normal", value: "normal" },
+          { title: "DM Sans", value: "body" },
+          { title: "Space Grotesk", value: "display" },
           { title: "Heading 2", value: "h2" },
           { title: "Heading 3", value: "h3" },
           { title: "Quote", value: "blockquote" },
