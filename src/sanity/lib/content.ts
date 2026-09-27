@@ -5,6 +5,11 @@ export type PortfolioContent = {
     headline: string;
     heroStatement: string;
     heroDescription: string;
+    pointOfViewKicker: string;
+    pointOfViewTitle: string;
+    pointOfViewParagraphs: string[];
+    pointOfViewLinkText: string;
+    pointOfViewLinkUrl: string;
     email: string;
     linkedin: string;
     substack: string;
@@ -23,6 +28,14 @@ const fallback: PortfolioContent = {
     headline: "Product-minded data leader with 15+ years of experience",
     heroStatement: "Building trusted data foundations for AI.",
     heroDescription: "I turn complex data and regulatory challenges into products people can understand, trust, and use.",
+    pointOfViewKicker: "01 / The point of view",
+    pointOfViewTitle: "Data is only useful when it has meaning.",
+    pointOfViewParagraphs: [
+      "I am an Executive Director at JPMorganChase, building firmwide data capabilities across governance, lineage, quality, semantics, and platforms.",
+      "My work lives at the intersection of product thinking and technical depth: graphs, ontologies, APIs, Python, SQL, Databricks, Snowflake, and the operating realities of regulated data.",
+    ],
+    pointOfViewLinkText: "More about me",
+    pointOfViewLinkUrl: "mailto:aggarwal.ankit5@gmail.com",
     email: "aggarwal.ankit5@gmail.com",
     linkedin: "https://www.linkedin.com/in/ankitaggarwal05",
     substack: "https://substack.com/@ankitxlnc5",
@@ -65,7 +78,7 @@ export async function getPortfolioContent(): Promise<PortfolioContent> {
 
   try {
     const [settings, capabilities, projects, experience] = await Promise.all([
-      client.fetch(`*[_type == "siteSettings"][0]{headline, heroStatement, heroDescription, email, linkedin, substack, education, ventures, personalFinanceTitle, personalFinanceSummary}`),
+      client.fetch(`*[_type == "siteSettings"][0]{headline, heroStatement, heroDescription, pointOfViewKicker, pointOfViewTitle, pointOfViewParagraphs, pointOfViewLinkText, pointOfViewLinkUrl, email, linkedin, substack, education, ventures, personalFinanceTitle, personalFinanceSummary}`),
       client.fetch(`*[_type == "capability"] | order(order asc){number, title, "text": description}`),
       client.fetch(`*[_type == "project"] | order(order asc){index, type, title, description, tags, accent, url}`),
       client.fetch(`*[_type == "experience"] | order(order asc){years, company, role, note}`),
@@ -75,6 +88,7 @@ export async function getPortfolioContent(): Promise<PortfolioContent> {
       settings: {
         ...fallback.settings,
         ...settings,
+        pointOfViewParagraphs: settings?.pointOfViewParagraphs ?? fallback.settings.pointOfViewParagraphs,
         education: settings?.education ?? fallback.settings.education,
         ventures: settings?.ventures ?? fallback.settings.ventures,
         personalFinanceTitle: settings?.personalFinanceTitle ?? fallback.settings.personalFinanceTitle,

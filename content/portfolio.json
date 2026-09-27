@@ -6,6 +6,14 @@
     "headline": "Product Director",
     "heroStatement": "Building trusted data foundations for AI.",
     "heroDescription": "I turn complex data and regulatory challenges into products people can understand, trust, and use.",
+    "pointOfViewKicker": "01 / The point of view",
+    "pointOfViewTitle": "Data is only useful when it has meaning.",
+    "pointOfViewParagraphs": [
+      "I am an Executive Director at JPMorganChase, building firmwide data capabilities across governance, lineage, quality, semantics, and platforms.",
+      "My work lives at the intersection of product thinking and technical depth: graphs, ontologies, APIs, Python, SQL, Databricks, Snowflake, and the operating realities of regulated data."
+    ],
+    "pointOfViewLinkText": "More about me",
+    "pointOfViewLinkUrl": "mailto:aggarwal.ankit5@gmail.com",
     "email": "aggarwal.ankit5@gmail.com",
     "linkedin": "https://www.linkedin.com/in/ankitaggarwal05",
     "substack": "https://substack.com/@ankitxlnc5",

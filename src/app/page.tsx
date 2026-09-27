@@ -53,13 +53,12 @@ export default async function Home() {
       </section>
 
       <section className="intro shell">
-        <div className="section-kicker">01 / The point of view</div>
+        <div className="section-kicker">{content.settings.pointOfViewKicker}</div>
         <div className="intro-content">
-          <h2>Data is only useful when it has <span>meaning.</span></h2>
+          <h2>{content.settings.pointOfViewTitle}</h2>
           <div>
-            <p>I am an Executive Director at JPMorganChase, building firmwide data capabilities across governance, lineage, quality, semantics, and platforms.</p>
-            <p>My work lives at the intersection of product thinking and technical depth: graphs, ontologies, APIs, Python, SQL, Databricks, Snowflake, and the operating realities of regulated data.</p>
-            <a className="text-link" href="mailto:aggarwal.ankit5@gmail.com">More about me <ArrowUpRight size={16} /></a>
+            {content.settings.pointOfViewParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            <a className="text-link" href={content.settings.pointOfViewLinkUrl}>{content.settings.pointOfViewLinkText} <ArrowUpRight size={16} /></a>
           </div>
         </div>
       </section>
