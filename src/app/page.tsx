@@ -2,7 +2,6 @@ import { ArrowUpRight, CircleArrowOutUpRight, Menu, ShieldCheck } from "lucide-r
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { getPortfolioContent } from "@/sanity/lib/content";
 import Image from "next/image";
-import Link from "next/link";
 
 export const revalidate = 60;
 
@@ -28,7 +27,6 @@ export default async function Home() {
           <a href="#finance">Finance</a>
           <a href="#contact">Contact</a>
         </div>
-        <Link className="nav-admin" href="/admin">Admin <ArrowUpRight size={15} /></Link>
         <button className="menu-button" aria-label="Open navigation"><Menu size={21} /></button>
       </nav>
 
