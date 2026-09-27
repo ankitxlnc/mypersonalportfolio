@@ -9,6 +9,7 @@ export const siteSettings = defineType({
     defineField({ name: "headline", title: "Headline", type: "string", initialValue: "Product-minded data leader with 15+ years of experience" }),
     defineField({ name: "heroStatement", title: "Hero statement", type: "string", initialValue: "Building the context for trusted data." }),
     defineField({ name: "heroDescription", title: "Hero description", type: "text" }),
+    defineField({ name: "profileImage", title: "Profile photo", type: "image", options: { hotspot: true } }),
     defineField({ name: "pointOfViewKicker", title: "About section label", type: "string", initialValue: "01 / About me" }),
     defineField({
       name: "resumeFile",

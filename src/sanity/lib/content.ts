@@ -6,6 +6,7 @@ export type PortfolioContent = {
     headline: string;
     heroStatement: string;
     heroDescription: string;
+    profileImageUrl: string | null;
     pointOfViewKicker: string;
     about: PortableTextBlock[];
     resumeUrl: string;
@@ -27,6 +28,7 @@ const fallback: PortfolioContent = {
     headline: "Product-minded data leader with 15+ years of experience",
     heroStatement: "Building trusted data foundations for AI.",
     heroDescription: "I turn complex data and regulatory challenges into products people can understand, trust, and use.",
+    profileImageUrl: null,
     pointOfViewKicker: "01 / About me",
     about: [
       { _type: "block", _key: "about-heading", style: "h2", markDefs: [], children: [{ _type: "span", _key: "about-heading-text", text: "Builder at heart.", marks: [] }] },
@@ -84,7 +86,7 @@ export async function getPortfolioContent(): Promise<PortfolioContent> {
 
   try {
     const [settings, capabilities, projects, experience] = await Promise.all([
-      client.fetch(`*[_type == "siteSettings"][0]{headline, heroStatement, heroDescription, pointOfViewKicker, about, "resumeUrl": resumeFile.asset->url, email, linkedin, substack, education, ventures, personalFinanceTitle, personalFinanceSummary}`),
+      client.fetch(`*[_type == "siteSettings"][0]{headline, heroStatement, heroDescription, "profileImageUrl": profileImage.asset->url, pointOfViewKicker, about, "resumeUrl": resumeFile.asset->url, email, linkedin, substack, education, ventures, personalFinanceTitle, personalFinanceSummary}`),
       client.fetch(`*[_type == "capability"] | order(order asc){number, title, "text": description}`),
       client.fetch(`*[_type == "project"] | order(order asc){index, type, title, description, tags, accent, url}`),
       client.fetch(`*[_type == "experience"] | order(order asc){years, company, role, note}`),
@@ -94,6 +96,7 @@ export async function getPortfolioContent(): Promise<PortfolioContent> {
       settings: {
         ...fallback.settings,
         ...settings,
+        profileImageUrl: settings?.profileImageUrl ?? null,
         about: settings?.about?.length ? settings.about : fallback.settings.about,
         resumeUrl: settings?.resumeUrl ?? fallback.settings.resumeUrl,
         education: settings?.education ?? fallback.settings.education,

@@ -1,6 +1,7 @@
 import { ArrowUpRight, CircleArrowOutUpRight, Menu, ShieldCheck } from "lucide-react";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { getPortfolioContent } from "@/sanity/lib/content";
+import Image from "next/image";
 import Link from "next/link";
 
 export const revalidate = 60;
@@ -18,7 +19,7 @@ export default async function Home() {
   return (
     <main>
       <nav className="site-nav shell" aria-label="Primary navigation">
-        <a className="brand" href="#top" aria-label="Ankit Aggarwal home"><span>AA</span><strong>Ankit Aggarwal</strong></a>
+        <a className="brand" href="#top" aria-label="Ankit Aggarwal home">{content.settings.profileImageUrl ? <Image className="brand-avatar" src={content.settings.profileImageUrl} alt="" width={34} height={34} /> : <span>AA</span>}<strong>Ankit Aggarwal</strong></a>
         <div className="nav-links">
           <a href="#work">Selected work</a>
           <a href="#experience">Experience</a>
@@ -66,6 +67,7 @@ export default async function Home() {
       </section>
 
       <section className="capabilities shell" id="capabilities">
+        <div className="section-kicker">01 / Core Capabilities</div>
         {content.capabilities.map((capability) => <article className="capability" key={capability.number}><span>{capability.number}</span><h3>{capability.title}</h3><p>{capability.text}</p></article>)}
       </section>
 
