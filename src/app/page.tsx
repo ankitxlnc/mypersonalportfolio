@@ -30,7 +30,7 @@ export default async function Home() {
           <p className="hero-lede">{content.settings.heroDescription}</p>
           <div className="hero-actions">
             <a className="button button-dark" href="#experience">View experience <ArrowUpRight size={17} /></a>
-            <a className="text-link" href="mailto:aggarwal.ankit5@gmail.com">Let&apos;s connect <ArrowUpRight size={16} /></a>
+            <a className="text-link" href="https://www.linkedin.com/in/ankitaggarwal05" target="_blank" rel="noreferrer">Let&apos;s connect <ArrowUpRight size={16} /></a>
           </div>
         </div>
         <div className="hero-aside">
