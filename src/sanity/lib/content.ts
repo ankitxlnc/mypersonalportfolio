@@ -1,4 +1,5 @@
 import { createClient } from "next-sanity";
+import type { PortableTextBlock } from "@portabletext/react";
 
 export type PortfolioContent = {
   settings: {
@@ -6,8 +7,7 @@ export type PortfolioContent = {
     heroStatement: string;
     heroDescription: string;
     pointOfViewKicker: string;
-    pointOfViewTitle: string;
-    pointOfViewParagraphs: string[];
+    about: PortableTextBlock[];
     resumeUrl: string;
     email: string;
     linkedin: string;
@@ -27,11 +27,19 @@ const fallback: PortfolioContent = {
     headline: "Product-minded data leader with 15+ years of experience",
     heroStatement: "Building trusted data foundations for AI.",
     heroDescription: "I turn complex data and regulatory challenges into products people can understand, trust, and use.",
-    pointOfViewKicker: "01 / The point of view",
-    pointOfViewTitle: "Data is only useful when it has meaning.",
-    pointOfViewParagraphs: [
-      "I am an Executive Director at JPMorganChase, building firmwide data capabilities across governance, lineage, quality, semantics, and platforms.",
-      "My work lives at the intersection of product thinking and technical depth: graphs, ontologies, APIs, Python, SQL, Databricks, Snowflake, and the operating realities of regulated data.",
+    pointOfViewKicker: "01 / About me",
+    about: [
+      { _type: "block", _key: "about-heading", style: "h2", markDefs: [], children: [{ _type: "span", _key: "about-heading-text", text: "Builder at heart.", marks: [] }] },
+      { _type: "block", _key: "about-start", style: "normal", markDefs: [], children: [{ _type: "span", _key: "about-start-text", text: "I don't wait for a perfect start. I just get started.", marks: [] }] },
+      { _type: "block", _key: "about-first-job", style: "normal", markDefs: [], children: [{ _type: "span", _key: "about-first-job-text", text: "Right after school, I took my first job at McDonald's for ₹2,000 a month, about $22.", marks: [] }] },
+      { _type: "block", _key: "about-university", style: "normal", markDefs: [], children: [{ _type: "span", _key: "about-university-text", text: "I studied computer science at Thiruvalluvar University while working, took an internship at HCL Tech, and kept pushing until I broke into core tech at iQor in 2009.", marks: [] }] },
+      { _type: "block", _key: "about-current-role", style: "normal", markDefs: [], children: [{ _type: "span", _key: "about-current-role-text", text: "Since then, I've designed, built, and shipped enterprise products, and today I lead data and AI products at JPMorganChase.", marks: [] }] },
+      { _type: "block", _key: "about-builder-instinct", style: "normal", markDefs: [], children: [{ _type: "span", _key: "about-builder-instinct-text", text: "The titles have changed. The instinct hasn't. I'm a builder at heart: I show up, learn by doing, and turn hard problems into things people use.", marks: [] }] },
+      { _type: "block", _key: "about-how-i-work", style: "h3", markDefs: [], children: [{ _type: "span", _key: "about-how-i-work-text", text: "How I work:", marks: [] }] },
+      { _type: "block", _key: "about-principle-1", style: "normal", listItem: "number", level: 1, markDefs: [], children: [{ _type: "span", _key: "about-principle-1-lead", text: "Understandable before clever.", marks: ["strong"] }, { _type: "span", _key: "about-principle-1-detail", text: " If people can't explain it, they won't trust it.", marks: [] }] },
+      { _type: "block", _key: "about-principle-2", style: "normal", listItem: "number", level: 1, markDefs: [], children: [{ _type: "span", _key: "about-principle-2-lead", text: "Trust is a feature.", marks: ["strong"] }, { _type: "span", _key: "about-principle-2-detail", text: " In regulated data and in AI, it's the product.", marks: [] }] },
+      { _type: "block", _key: "about-principle-3", style: "normal", listItem: "number", level: 1, markDefs: [], children: [{ _type: "span", _key: "about-principle-3-lead", text: "Build to learn.", marks: ["strong"] }, { _type: "span", _key: "about-principle-3-detail", text: " I prototype myself, because opinions formed by building are better than opinions formed by reading.", marks: [] }] },
+      { _type: "block", _key: "about-principle-4", style: "normal", listItem: "number", level: 1, markDefs: [], children: [{ _type: "span", _key: "about-principle-4-lead", text: "Show the work.", marks: ["strong"] }, { _type: "span", _key: "about-principle-4-detail", text: " That's why this site exists.", marks: [] }] },
     ],
     resumeUrl: "/Ankit_Aggarwal.pdf",
     email: "aggarwal.ankit5@gmail.com",
@@ -76,7 +84,7 @@ export async function getPortfolioContent(): Promise<PortfolioContent> {
 
   try {
     const [settings, capabilities, projects, experience] = await Promise.all([
-      client.fetch(`*[_type == "siteSettings"][0]{headline, heroStatement, heroDescription, pointOfViewKicker, pointOfViewTitle, pointOfViewParagraphs, "resumeUrl": resumeFile.asset->url, email, linkedin, substack, education, ventures, personalFinanceTitle, personalFinanceSummary}`),
+      client.fetch(`*[_type == "siteSettings"][0]{headline, heroStatement, heroDescription, pointOfViewKicker, about, "resumeUrl": resumeFile.asset->url, email, linkedin, substack, education, ventures, personalFinanceTitle, personalFinanceSummary}`),
       client.fetch(`*[_type == "capability"] | order(order asc){number, title, "text": description}`),
       client.fetch(`*[_type == "project"] | order(order asc){index, type, title, description, tags, accent, url}`),
       client.fetch(`*[_type == "experience"] | order(order asc){years, company, role, note}`),
@@ -86,7 +94,7 @@ export async function getPortfolioContent(): Promise<PortfolioContent> {
       settings: {
         ...fallback.settings,
         ...settings,
-        pointOfViewParagraphs: settings?.pointOfViewParagraphs ?? fallback.settings.pointOfViewParagraphs,
+        about: settings?.about?.length ? settings.about : fallback.settings.about,
         resumeUrl: settings?.resumeUrl ?? fallback.settings.resumeUrl,
         education: settings?.education ?? fallback.settings.education,
         ventures: settings?.ventures ?? fallback.settings.ventures,

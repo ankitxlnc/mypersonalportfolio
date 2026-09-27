@@ -10,6 +10,7 @@
     "content:import": "node scripts/import-sanity.mjs"
   },
   "dependencies": {
+    "@portabletext/react": "^7.0.1",
     "@sanity/client": "^8.6.2",
     "@sanity/vision": "^6.15.0",
     "lucide-react": "^1.47.0",

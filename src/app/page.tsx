@@ -1,4 +1,5 @@
 import { ArrowUpRight, CircleArrowOutUpRight, Menu, ShieldCheck } from "lucide-react";
+import { PortableText } from "@portabletext/react";
 import { getPortfolioContent } from "@/sanity/lib/content";
 import Link from "next/link";
 
@@ -52,14 +53,9 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="intro shell">
+      <section className="intro shell" id="about">
         <div className="section-kicker">{content.settings.pointOfViewKicker}</div>
-        <div className="intro-content">
-          <h2>{content.settings.pointOfViewTitle}</h2>
-          <div>
-            {content.settings.pointOfViewParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-          </div>
-        </div>
+        <div className="intro-content"><PortableText value={content.settings.about} /></div>
       </section>
 
       <section className="capabilities shell" id="capabilities">
