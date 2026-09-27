@@ -1,7 +1,8 @@
-import { ArrowUpRight, CircleArrowOutUpRight, Menu, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, CircleArrowOutUpRight, ShieldCheck } from "lucide-react";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { getPortfolioContent } from "@/sanity/lib/content";
 import Image from "next/image";
+import MobileMenu from "./mobile-menu";
 
 export const revalidate = 60;
 
@@ -27,7 +28,7 @@ export default async function Home() {
           <a href="#finance">Finance</a>
           <a href="#contact">Contact</a>
         </div>
-        <button className="menu-button" aria-label="Open navigation"><Menu size={21} /></button>
+        <MobileMenu />
       </nav>
 
       <section className="hero shell" id="top">

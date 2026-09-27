@@ -59,3 +59,13 @@ em { color: #728d17; font-style: normal; }
 	.site-nav { height: 75px; padding-inline: 20px; }
 	.timeline-row { grid-template-columns: 1fr; gap: 7px; }
 }
+
+.mobile-menu { display: none; }
+.mobile-menu-panel[hidden] { display: none; }
+@media (max-width: 760px) {
+	.mobile-menu { display: block; position: relative; }
+	.menu-button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; cursor: pointer; }
+	.mobile-menu-panel { position: absolute; top: calc(100% + 1px); right: -20px; z-index: 25; display: flex; flex-direction: column; width: min(100vw, 320px); padding: 12px 20px 18px; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 16px 25px rgba(20, 32, 28, .09); }
+	.mobile-menu-panel a { padding: 14px 0; border-bottom: 1px solid var(--line); color: #58625c; font-size: 14px; }
+	.mobile-menu-panel a:last-child { border-bottom: 0; }
+}
