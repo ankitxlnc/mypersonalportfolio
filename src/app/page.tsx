@@ -14,6 +14,9 @@ export default async function Home() {
         <div className="nav-links">
           <a href="#work">Selected work</a>
           <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#investment">Investment</a>
+          <a href="#finance">Finance</a>
           <a href="#contact">Contact</a>
         </div>
         <Link className="nav-admin" href="/admin">Admin <ArrowUpRight size={15} /></Link>
@@ -69,7 +72,7 @@ export default async function Home() {
         <div className="shell">
           <div className="section-heading"><div><div className="section-kicker">02 / Selected work</div><h2>Ideas, shipped.</h2></div><p>Some of the platforms and systems I&apos;ve helped bring into the world.</p></div>
           <div className="work-list">
-            {content.projects.map((item) => <article className={`work-card ${item.accent}`} key={item.index}><div className="work-card-top"><span>{item.index}</span><span>{item.type}</span></div><h3>{item.title}</h3><p>{item.description}</p><div className="tag-row">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><a href="#contact" aria-label={`Discuss ${item.title}`}><CircleArrowOutUpRight size={23} /></a></article>)}
+            {content.projects.map((item) => <article className={`work-card ${item.accent}`} key={item.index}><div className="work-card-top"><span>{item.index}</span><span>{item.type}</span></div><h3>{item.title}</h3><p>{item.description}</p><div className="tag-row">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{item.url && <a href={item.url} target="_blank" rel="noreferrer" aria-label={`View ${item.title}`}><CircleArrowOutUpRight size={23} /></a>}</article>)}
           </div>
         </div>
       </section>
@@ -85,8 +88,32 @@ export default async function Home() {
         <div className="writing-row"><h2>Thinking in public<br /><span>about data.</span></h2><div><p>Notes on data products, context, governance, and what it takes to make complex systems useful.</p><a className="button button-outline" href="https://substack.com/@ankitxlnc5" target="_blank" rel="noreferrer">Read on Substack <ArrowUpRight size={17} /></a></div></div>
       </section>
 
+      <section className="education-section" id="education">
+        <div className="shell">
+          <div className="section-kicker">05 / Education</div>
+          <h2>Education</h2>
+          <div className="education-list">{content.settings.education.map((item) => <article className="education-row" key={item.institution}><h3>{item.institution}</h3><p>{item.credential}</p></article>)}</div>
+        </div>
+      </section>
+
+      <section className="investment-section" id="investment">
+        <div className="shell investment-inner">
+          <div className="section-kicker">06 / Investment</div>
+          <h2>Investing in what&apos;s next.</h2>
+          {content.settings.ventures.map((venture) => <article className="venture-item" key={venture.company}><h3>{venture.company}</h3><p>{venture.description}</p></article>)}
+        </div>
+      </section>
+
+      <section className="finance-section" id="finance">
+        <div className="shell finance-inner">
+          <div className="section-kicker">07 / Personal finance</div>
+          <h2>{content.settings.personalFinanceTitle}</h2>
+          <p>{content.settings.personalFinanceSummary}</p>
+        </div>
+      </section>
+
       <section className="contact-section" id="contact">
-        <div className="shell contact-inner"><div className="section-kicker">05 / Start a conversation</div><h2>Have a data problem<br />worth <em>untangling?</em></h2><div className="contact-bottom"><p>Whether you&apos;re building a platform, navigating regulation, or looking for a clearer way through complexity, I&apos;d like to hear from you.</p><div className="contact-links"><a href="mailto:aggarwal.ankit5@gmail.com">aggarwal.ankit5@gmail.com <ArrowUpRight size={17} /></a><a href="https://www.linkedin.com/in/ankitaggarwal05" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={17} /></a></div></div></div>
+        <div className="shell contact-inner"><div className="section-kicker">08 / Start a conversation</div><h2>Have a data problem<br />worth <em>untangling?</em></h2><div className="contact-bottom"><p>Whether you&apos;re building a platform, navigating regulation, or looking for a clearer way through complexity, I&apos;d like to hear from you.</p><div className="contact-links"><a href="mailto:aggarwal.ankit5@gmail.com">aggarwal.ankit5@gmail.com <ArrowUpRight size={17} /></a><a href="https://www.linkedin.com/in/ankitaggarwal05" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={17} /></a></div></div></div>
       </section>
 
       <footer className="site-footer shell"><span>© {new Date().getFullYear()} Ankit Aggarwal</span><span><ShieldCheck size={14} /> Built around trust</span><a href="#top">Back to top ↑</a></footer>

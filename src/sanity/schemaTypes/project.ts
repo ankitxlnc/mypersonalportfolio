@@ -10,6 +10,7 @@ export const project = defineType({
     defineField({ name: "title", title: "Title", type: "string" }),
     defineField({ name: "description", title: "Description", type: "text" }),
     defineField({ name: "tags", title: "Tags", type: "array", of: [{ type: "string" }] }),
+    defineField({ name: "url", title: "Video or project URL", type: "url" }),
     defineField({ name: "accent", title: "Accent", type: "string", options: { list: ["amber", "mint", "sky"] } }),
     defineField({ name: "order", title: "Order", type: "number" }),
   ],

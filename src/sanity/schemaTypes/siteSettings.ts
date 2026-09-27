@@ -13,5 +13,25 @@ export const siteSettings = defineType({
     defineField({ name: "email", title: "Email", type: "string", initialValue: "aggarwal.ankit5@gmail.com" }),
     defineField({ name: "linkedin", title: "LinkedIn URL", type: "url", initialValue: "https://www.linkedin.com/in/ankitaggarwal05" }),
     defineField({ name: "substack", title: "Substack URL", type: "url", initialValue: "https://substack.com/@ankitxlnc5" }),
+    defineField({
+      name: "education",
+      title: "Education",
+      type: "array",
+      of: [{ type: "object", fields: [
+        { name: "institution", title: "Institution", type: "string" },
+        { name: "credential", title: "Degree or program", type: "string" },
+      ] }],
+    }),
+    defineField({
+      name: "ventures",
+      title: "Investments and interests",
+      type: "array",
+      of: [{ type: "object", fields: [
+        { name: "company", title: "Company", type: "string" },
+        { name: "description", title: "Description", type: "text" },
+      ] }],
+    }),
+    defineField({ name: "personalFinanceTitle", title: "Personal finance heading", type: "string" }),
+    defineField({ name: "personalFinanceSummary", title: "Personal finance introduction", type: "text" }),
   ],
 });
