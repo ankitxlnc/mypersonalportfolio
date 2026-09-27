@@ -39,7 +39,7 @@ export default async function Home() {
           <div className="graph-node node-a">Data</div>
           <div className="graph-node node-b">Context</div>
           <div className="graph-node node-c">Trust</div>
-          <div className="hero-aside-label">15+ years<br /><span>in the data</span></div>
+          <div className="hero-aside-label">15+ years<br /><span>making complex data useful.</span></div>
         </div>
       </section>
 

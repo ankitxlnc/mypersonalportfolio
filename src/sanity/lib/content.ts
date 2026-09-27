@@ -21,7 +21,7 @@ export type PortfolioContent = {
 const fallback: PortfolioContent = {
   settings: {
     headline: "Product-minded data leader with 15+ years of experience",
-    heroStatement: "Building the context for trusted data.",
+    heroStatement: "Building trusted data foundations for AI.",
     heroDescription: "I turn complex data and regulatory challenges into products people can understand, trust, and use.",
     email: "aggarwal.ankit5@gmail.com",
     linkedin: "https://www.linkedin.com/in/ankitaggarwal05",
