@@ -1,4 +1,4 @@
-import { ArrowUpRight, ChevronDown, CircleArrowOutUpRight, Menu, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, CircleArrowOutUpRight, Menu, ShieldCheck } from "lucide-react";
 import { getPortfolioContent } from "@/sanity/lib/content";
 import Link from "next/link";
 
@@ -58,7 +58,6 @@ export default async function Home() {
           <h2>{content.settings.pointOfViewTitle}</h2>
           <div>
             {content.settings.pointOfViewParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            <a className="text-link" href={content.settings.pointOfViewLinkUrl}>{content.settings.pointOfViewLinkText} <ArrowUpRight size={16} /></a>
           </div>
         </div>
       </section>
@@ -78,8 +77,8 @@ export default async function Home() {
 
       <section className="experience shell" id="experience">
         <div className="section-kicker">03 / Experience</div>
-        <div className="experience-heading"><h2>A career in <em>useful</em> complexity.</h2><a className="text-link" href="/Ankit_Aggarwal.pdf" target="_blank" rel="noreferrer">View full resume <ArrowUpRight size={16} /></a></div>
-        <div className="timeline">{content.experience.map((item) => <article className="timeline-row" key={item.company}><div className="timeline-years">{item.years}</div><div className="timeline-main"><h3>{item.company}</h3><p>{item.role}</p></div><div className="timeline-note">{item.note}</div><ChevronDown className="timeline-icon" size={18} /></article>)}</div>
+        <div className="experience-heading"><h2>A career in <em>useful</em> complexity.</h2><a className="text-link" href={content.settings.resumeUrl} target="_blank" rel="noreferrer">View Details <ArrowUpRight size={16} /></a></div>
+        <div className="timeline">{content.experience.map((item) => <article className="timeline-row" key={item.company}><div className="timeline-years">{item.years}</div><div className="timeline-main"><h3>{item.company}</h3><p>{item.role}</p></div><div className="timeline-note">{item.note}</div></article>)}</div>
       </section>
 
       <section className="writing shell">
