@@ -25,9 +25,9 @@ export type PortfolioContent = {
 
 const fallback: PortfolioContent = {
   settings: {
-    headline: "Product-minded data leader with 15+ years of experience",
-    heroStatement: "Building trusted data foundations for AI.",
-    heroDescription: "I turn complex data and regulatory challenges into products people can understand, trust, and use.",
+    headline: "AI & Data Product Leader · Builder",
+    heroStatement: "I build AI products on trusted data foundations.",
+    heroDescription: "I turn complex data, AI, and regulatory challenges into products people can understand, trust, and use.",
     profileImageUrl: null,
     pointOfViewKicker: "01 / About me",
     about: [
@@ -96,6 +96,9 @@ export async function getPortfolioContent(): Promise<PortfolioContent> {
       settings: {
         ...fallback.settings,
         ...settings,
+        headline: fallback.settings.headline,
+        heroStatement: fallback.settings.heroStatement,
+        heroDescription: fallback.settings.heroDescription,
         profileImageUrl: settings?.profileImageUrl ?? null,
         about: settings?.about?.length ? settings.about : fallback.settings.about,
         resumeUrl: settings?.resumeUrl ?? fallback.settings.resumeUrl,

@@ -7,8 +7,6 @@ const navigationLinks = [
   { href: "#work", label: "Selected work" },
   { href: "#experience", label: "Experience" },
   { href: "#education", label: "Education" },
-  { href: "#investment", label: "Investment" },
-  { href: "#finance", label: "Finance" },
   { href: "#contact", label: "Contact" },
 ];
 

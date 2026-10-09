@@ -3,9 +3,9 @@
     "_id": "siteSettings-main",
     "_type": "siteSettings",
     "name": "Ankit Aggarwal",
-    "headline": "Product Director",
-    "heroStatement": "Building trusted data foundations for AI.",
-    "heroDescription": "I turn complex data and regulatory challenges into products people can understand, trust, and use.",
+    "headline": "AI & Data Product Leader · Builder",
+    "heroStatement": "I build AI products on trusted data foundations.",
+    "heroDescription": "I turn complex data, AI, and regulatory challenges into products people can understand, trust, and use.",
     "pointOfViewKicker": "01 / About me",
     "about": [
       { "_type": "block", "_key": "about-heading", "style": "h2", "markDefs": [], "children": [{ "_type": "span", "_key": "about-heading-text", "text": "Builder at heart.", "marks": [] }] },

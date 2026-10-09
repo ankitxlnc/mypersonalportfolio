@@ -13,9 +13,9 @@ const bodyFont = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Ankit Aggarwal | Data Product Leader",
+  title: "Ankit Aggarwal | AI & Data Product Leader",
   description:
-    "Ankit Aggarwal is a product-minded data leader building trusted data products for complex regulatory environments.",
+    "Ankit Aggarwal builds AI products on trusted data foundations for complex, regulated environments.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
